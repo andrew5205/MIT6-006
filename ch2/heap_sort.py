@@ -30,7 +30,7 @@ print(heap_sort(array))         # [2, 4, 5, 13, 15, 17, 18, 21, 24, 26]
 # it is filled from LEFT to RIGHT
 
 
-def max_heapify(arr, heap_size, root_index):
+def heapify(arr, heap_size, root_index):
     
     # define 3 index: root(Top parent), left, right 
     largest = root_index
@@ -40,17 +40,40 @@ def max_heapify(arr, heap_size, root_index):
     # if the left_child of the root is vaild, and the element is greater than current root(largest), update the largest element 
     if left_child < heap_size and arr[left_child] > arr[largest]:
         largest = left_child
-    else:
-        largest = root_index
+    # else:
+        # largest = root_index
     # if the right_child of the root is vaild, and the element is greater than current root(largest), update the largest element
-    if right_child < heap_size and arr[right_child] > arr[right_child]:
+    if right_child < heap_size and arr[right_child] > arr[largest]:
         largest = right_child
 
     # If the the largest element is no longer root element, swap 
     if largest != root_index:
         arr[root_index], arr[largest] = arr[largest], arr[root_index]
         # recursive
-        max_heapify(arr, heap_size, largest)
+        heapify(arr, heap_size, largest)
+
+    
+def heap_sortI(arr):
+    n = len(arr)
+
+    # create a Max Heap from array
+    # 2nd arg means to the end of the array; stop at -1 element
+    # 3rd arg is iterate backwards 
+    for i in range(n, -1, -1):
+        heapify(arr, n, i)
+
+    # swap the max to the root position
+    # one by one extract elements 
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        heapify(arr, i, 0)
+
+
+A = [13, 21, 15, 5, 26, 4, 17, 18, 24, 2]
+# A = [12, 11, 13, 5, 6, 7]
+heap_sortI(A)
+print(A)
+
 
 
 
