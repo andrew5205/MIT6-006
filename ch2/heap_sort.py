@@ -22,7 +22,6 @@ array = [13, 21, 15, 5, 26, 4, 17, 18, 24, 2]
 print(heap_sort(array))         # [2, 4, 5, 13, 15, 17, 18, 21, 24, 26]
 # ******************************************************************************************************************
 
-# O(n logn)
 # heapify - a process of converting a binary tree into a heap data
 # heapify - All it does is looking into parent and two children, swap if needed 
 
@@ -52,7 +51,8 @@ def heapify(arr, heap_size, root_index):
         # recursive
         heapify(arr, heap_size, largest)
 
-    
+
+# heap sort time: O(n logn)
 def heap_sortI(arr):
     n = len(arr)
 
