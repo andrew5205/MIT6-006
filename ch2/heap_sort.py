@@ -57,7 +57,7 @@ def heap_sortI(arr):
     n = len(arr)
 
     # create a Max Heap from array
-    # 2nd arg means to the end of the array; stop at -1 element
+    # 2nd arg means to the end of the array; stop at -1 element; index 0 still need process 
     # 3rd arg is iterate backwards, reducing the count of i by 1
     
     # starting from the last non-leaf node, index: floor of (n/2) - 1
@@ -65,7 +65,8 @@ def heap_sortI(arr):
         heapify(arr, n, i)
     # print(arr)          # [26, 24, 17, 18, 21, 4, 15, 13, 5, 2] <- this is the heap tree array
 
-    # swap the max to the root position
+    # after the Heap Tree is completed
+    # taking the root node to the most end of the array (iterate backward)
     # one by one extract elements 
     for i in range(n-1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
