@@ -51,22 +51,26 @@ def heapify(arr, heap_size, root_index):
         # recursive
         heapify(arr, heap_size, largest)
 
-
+    
 # heap sort time: O(n logn)
 def heap_sortI(arr):
     n = len(arr)
 
     # create a Max Heap from array
     # 2nd arg means to the end of the array; stop at -1 element
-    # 3rd arg is iterate backwards 
-    for i in range(n, -1, -1):
+    # 3rd arg is iterate backwards, reducing the count of i by 1
+    
+    # starting from the last non-leaf node, index: floor of (n/2) - 1
+    for i in range(int(n/2)-1, -1, -1):
         heapify(arr, n, i)
+    # print(arr)          # [26, 24, 17, 18, 21, 4, 15, 13, 5, 2] <- this is the heap tree array
 
     # swap the max to the root position
     # one by one extract elements 
     for i in range(n-1, 0, -1):
         arr[i], arr[0] = arr[0], arr[i]
         heapify(arr, i, 0)
+    # print(arr)          # [2, 4, 5, 13, 15, 17, 18, 21, 24, 26] <- sort from the heap tree array
 
 
 A = [13, 21, 15, 5, 26, 4, 17, 18, 24, 2]
