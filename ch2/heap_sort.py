@@ -29,6 +29,7 @@ print(heap_sort(array))         # [2, 4, 5, 13, 15, 17, 18, 21, 24, 26]
 # it is filled from LEFT to RIGHT
 
 
+# Heapify: O(log n)
 def heapify(arr, heap_size, root_index):
     
     # define 3 index: root(Top parent), left, right 
