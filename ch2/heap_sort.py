@@ -41,7 +41,7 @@ def heapify(arr, heap_size, root_index):
     if left_child < heap_size and arr[left_child] > arr[largest]:
         largest = left_child
     # else:
-        # largest = root_index
+    #     largest = root_index
     # if the right_child of the root is vaild, and the element is greater than current root(largest), update the largest element
     if right_child < heap_size and arr[right_child] > arr[largest]:
         largest = right_child
@@ -49,7 +49,7 @@ def heapify(arr, heap_size, root_index):
     # If the the largest element is no longer root element, swap 
     if largest != root_index:
         arr[root_index], arr[largest] = arr[largest], arr[root_index]
-        # recursive
+        # recursive, have largest index pass in as root index
         heapify(arr, heap_size, largest)
 
     
