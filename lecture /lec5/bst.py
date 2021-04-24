@@ -33,7 +33,17 @@ and a pointer to the root.
                     node = node.right
         return new
     
-    
+    def find(self, t):
+        """Return the node for key t if is in the tree, or None otherwise."""
+        node = self.root
+        while node is not None:
+            if t == node.key:
+                return node
+            elif t < node.key:
+                node = node.left
+            else:
+                node = node.right
+        return None
     
     
     
